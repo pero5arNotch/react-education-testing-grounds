@@ -39,6 +39,10 @@ code {
   padding: 10px;
 }
 
+.content div:last-child:nth-child(2n-1) {
+  grid-column: span 2;
+}
+
 .content h2 {
   font-size: 5rem;
 }
