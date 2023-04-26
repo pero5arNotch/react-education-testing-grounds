@@ -8,7 +8,8 @@ function Cell(props) {
     return (
         <div
             style={{ backgroundColor: color, padding: '5%', height: '10em' }}
-            onClick={() => setCounter(counter + 1)}
+            onClick={() => setCounter((oldValue) => oldValue + 1)}
+            onDoubleClick={() => setCounter((oldValue) => oldValue + 10)}
         >
             <h2>{title}</h2>
             <span>Čelija je kliknuta {counter} puta.</span>
