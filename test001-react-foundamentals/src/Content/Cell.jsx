@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 function Cell(props) {
   const { title, color, onClick, totalCount } = props;
@@ -20,4 +20,4 @@ function Cell(props) {
   );
 }
 
-export default Cell;
+export default memo(Cell);
