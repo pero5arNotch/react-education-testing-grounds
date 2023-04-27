@@ -19,7 +19,7 @@ function Cell(props) {
       }}
     >
       <h2>{title}</h2>
-      <span>Čelija je kliknuta {counter} / {totalCount} puta.</span>
+      <span>Ćelija je kliknuta {counter} / {totalCount} puta.</span>
     </div>
   );
 }
