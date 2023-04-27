@@ -62,14 +62,12 @@ function Content({ whiteTextCells, blackTextCells }) {
         shouldTexBeBlack
           ? (
             <>
-              {renderCell({ title: 'C', color: '#3772FF' })}
-              {renderCell({ title: 'D', color: '#BAA898' })}
+              {blackTextCells.map(renderCell)}
             </>
           )
           : (
             <>
-              {renderCell({ title: 'A', color: '#F3A712' })}
-              {renderCell({ title: 'B', color: '#FF0054' })}
+              {whiteTextCells.map((cell) => renderCell(cell))}
             </>
           )
       }
