@@ -1,11 +1,18 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import Cell from './Cell';
 
 function Content() {
   const [totalCount, setTotalCount] = useState(0);
   const [shouldTexBeBlack, setShouldTextBeBlack] = useState(false);
 
-  // setInterval(() => { setShouldTextBeBlack((oldValue) => !oldValue); }, 3000);
+  useEffect(() => {
+    const intervalId = setInterval(() => { setShouldTextBeBlack((oldValue) => !oldValue); }, 3000);
+
+    return () => {
+      clearInterval(intervalId);
+      console.info('Interval cleared');
+    };
+  }, []);
 
   const [counterByTitle, setCounterByTitle] = useState({
     'A': 0,
