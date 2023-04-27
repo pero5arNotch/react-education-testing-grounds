@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import Cell from './Cell';
 
-function Content() {
+function Content({ whiteTextCells, blackTextCells }) {
   const [totalCount, setTotalCount] = useState(0);
   const [shouldTexBeBlack, setShouldTextBeBlack] = useState(false);
 
@@ -41,6 +41,20 @@ function Content() {
     return { padding: '5%', height: '10em' };
   }, [shouldTexBeBlack]);
 
+  const renderCell = ({ title, color }) => {
+    return (
+      <Cell
+        key={title}
+        title={title}
+        color={color}
+        counter={counterByTitle[title]}
+        totalCount={0}
+        onChange={handleChange}
+        style={cellStyle}
+      />
+    );
+  };
+
   console.log('UPDATE: Content');
   return (
     <div className="content" style={{ color: 'white', textAlign: 'center' }}>
@@ -48,14 +62,14 @@ function Content() {
         shouldTexBeBlack
           ? (
             <>
-              <Cell key="C" title="C" color="#3772FF" counter={counterByTitle.C} totalCount={0} onChange={handleChange} style={cellStyle} />
-              <Cell key="D" title="D" color="#BAA898" counter={counterByTitle.D} totalCount={0} onChange={handleChange} style={cellStyle} />
+              {renderCell({ title: 'C', color: '#3772FF' })}
+              {renderCell({ title: 'D', color: '#BAA898' })}
             </>
           )
           : (
             <>
-              <Cell key="A" title="A" color="#F3A712" counter={counterByTitle.A} totalCount={0} onChange={handleChange} style={cellStyle} />
-              <Cell key="B" title="B" color="#FF0054" counter={counterByTitle.B} totalCount={0} onChange={handleChange} style={cellStyle} />
+              {renderCell({ title: 'A', color: '#F3A712' })}
+              {renderCell({ title: 'B', color: '#FF0054' })}
             </>
           )
       }
