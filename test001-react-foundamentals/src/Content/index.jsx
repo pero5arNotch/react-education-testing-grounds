@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import Cell from './Cell';
 
 function Content() {
@@ -6,7 +6,9 @@ function Content() {
   // const handleClick = () => setTotalCount((oldValue) => oldValue + 1);
   const handleClick = useCallback(() => setTotalCount((oldValue) => oldValue + 1), []);
 
-  const cellStyle = { padding: '5%', height: '10em' };
+  const cellStyle = useMemo(() => {
+    return { padding: '5%', height: '10em' };
+  }, []);
 
   console.log('UPDATE: Content');
   return (
