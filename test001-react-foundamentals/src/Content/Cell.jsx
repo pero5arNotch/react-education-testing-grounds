@@ -3,7 +3,7 @@ import { useState, memo, useEffect } from 'react';
 function Cell(props) {
   const { title, color, style, onChange, totalCount, counter: parentCounter } = props;
 
-  const [counter, setCounter] = useState(parentCounter);
+  const [counter, setCounter] = useState(parentCounter ?? 0);
 
   useEffect(() => {
     onChange(title, counter);

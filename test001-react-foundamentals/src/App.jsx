@@ -1,21 +1,38 @@
 import Header from './Header';
 import Content from './Content';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-function Form() {
+function Form({ addCell }) {
+  const [title, setTitle] = useState('');
+  const [color, setColor] = useState('');
+  const [textColor, setTextColor] = useState('black');
 
-  const handleSubmit = (e, ...rest) => {
+  const handleTitleChange = useCallback((e) => setTitle(e.target.value), []);
+  const handleColorChange = useCallback((e) => setColor(e.target.value), []);
+  const handleTextColorChange = useCallback((e) => setTextColor(e.target.value), []);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+
+    addCell({
+      title,
+      color,
+      textColor,
+    });
+
+    setTitle('');
+    setColor('');
+    setTextColor('');
   };
+
   return (
     <form onSubmit={handleSubmit}>
-      <label>Title: <input name="title" /></label>
-      <label>Color: <input name="color" /></label>
+      <label>Title: <input name="title" value={title} onChange={handleTitleChange} /></label>
+      <label>Color: <input name="color" value={color} onChange={handleColorChange} /></label>
       <label>
         Text Color:
-        <label><input name="textColor" type="radio" value="white" />White</label>
-        <label><input name="textColor" type="radio" value="black" />Black</label>
+        <label><input name="textColor" type="radio" value="white" checked={textColor === 'white'} onChange={handleTextColorChange} />White</label>
+        <label><input name="textColor" type="radio" value="black" checked={textColor === 'black'} onChange={handleTextColorChange} />Black</label>
       </label>
       <button type="submit">Submit</button>
     </form>
@@ -42,7 +59,7 @@ function App() {
     <div className="app">
       <div style={{ backgroundColor: '#51D6A9', margin: 10, padding: "10px" }}>
         <Header />
-        <Form />
+        <Form addCell={addCell} />
         <Content whiteTextCells={whiteTextCells} blackTextCells={blackTextCells} />
       </div>
     </div>
