@@ -22,14 +22,14 @@ function Content() {
         shouldTexBeBlack
           ? (
             <>
-              <Cell title="C" color="#3772FF" totalCount={0} onClick={handleClick} style={cellStyle} />
-              <Cell title="D" color="#BAA898" totalCount={0} onClick={handleClick} style={cellStyle} />
+              <Cell key="C" title="C" color="#3772FF" totalCount={0} onClick={handleClick} style={cellStyle} />
+              <Cell key="D" title="D" color="#BAA898" totalCount={0} onClick={handleClick} style={cellStyle} />
             </>
           )
           : (
             <>
-              <Cell title="A" color="#F3A712" totalCount={0} onClick={handleClick} style={cellStyle} />
-              <Cell title="B" color="#FF0054" totalCount={0} onClick={handleClick} style={cellStyle} />
+              <Cell key="A" title="A" color="#F3A712" totalCount={0} onClick={handleClick} style={cellStyle} />
+              <Cell key="B" title="B" color="#FF0054" totalCount={0} onClick={handleClick} style={cellStyle} />
             </>
           )
       }
