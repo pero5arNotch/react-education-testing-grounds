@@ -1,12 +1,13 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import Cell from './Cell';
+import ClassCell from './ClassCell';
 
 function Content({ whiteTextCells, blackTextCells }) {
   const [totalCount, setTotalCount] = useState(0);
   const [shouldTexBeBlack, setShouldTextBeBlack] = useState(false);
 
   useEffect(() => {
-    const intervalId = setInterval(() => { setShouldTextBeBlack((oldValue) => false); }, 3000);
+    const intervalId = setInterval(() => { setShouldTextBeBlack((oldValue) => !oldValue); }, 3000);
 
     return () => {
       clearInterval(intervalId);
@@ -50,7 +51,7 @@ function Content({ whiteTextCells, blackTextCells }) {
 
   const renderCell = ({ title, color }) => {
     return (
-      <Cell
+      <ClassCell
         key={title}
         title={title}
         color={color}

@@ -1,4 +1,4 @@
-import { useState, memo, useEffect } from 'react';
+import { useState, memo, useEffect, useCallback } from 'react';
 
 function Cell(props) {
   const { title, color, style, onChange, totalCount, counter: parentCounter } = props;
@@ -9,14 +9,15 @@ function Cell(props) {
     onChange(title, counter);
   }, [title, counter, onChange]);
 
+  const handleClick = useCallback(() => {
+    setCounter((oldValue) => oldValue + 1);
+  }, []);
+
   console.log(`UPDATE: Cell ${title}`);
   return (
     <div
       style={{ backgroundColor: color, ...style }}
-      onClick={() => {
-        setCounter((oldValue) => oldValue + 1);
-        // onClick(title);
-      }}
+      onClick={handleClick}
     >
       <h2>{title}</h2>
       <span>Ćelija je kliknuta {counter} / {totalCount} puta.</span>
