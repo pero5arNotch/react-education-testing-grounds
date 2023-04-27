@@ -3,6 +3,10 @@ import Cell from './Cell';
 
 function Content() {
   const [totalCount, setTotalCount] = useState(0);
+  const [shouldTexBeBlack, setShouldTextBeBlack] = useState(false);
+
+  // setInterval(() => { setShouldTextBeBlack((oldValue) => !oldValue); }, 3000);
+
   const [counterByTitle, setCounterByTitle] = useState({
     'A': 0,
     'B': 0,
@@ -16,8 +20,6 @@ function Content() {
       return { ...oldValue, [title]: oldValue[title] + 1 };
     });
   }, []);
-
-  const shouldTexBeBlack = totalCount % 2 === 1;
 
   const cellStyle = useMemo(() => {
     if (shouldTexBeBlack) {
