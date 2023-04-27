@@ -14,12 +14,19 @@ function Content({ whiteTextCells, blackTextCells }) {
     };
   }, []);
 
-  const [counterByTitle, setCounterByTitle] = useState({
-    'A': 0,
-    'B': 0,
-    'C': 0,
-    'D': 0,
-  });
+  const [counterByTitle, setCounterByTitle] = useState({});
+
+  useEffect(() => {
+    setCounterByTitle((oldValue) => {
+      const newValue = { ...oldValue };
+      for (const { title } of [...whiteTextCells, ...blackTextCells]) {
+        if (!newValue[title]) {
+          newValue[title] = 0;
+        }
+      }
+      return newValue;
+    });
+  }, [whiteTextCells, blackTextCells]);
 
   const handleClick = useCallback((title) => {
     setTotalCount((oldValue) => oldValue + 1);
@@ -36,9 +43,9 @@ function Content({ whiteTextCells, blackTextCells }) {
 
   const cellStyle = useMemo(() => {
     if (shouldTexBeBlack) {
-      return { color: 'black', padding: '5%', height: '10em' };
+      return { color: 'black', padding: '5%', minHeight: '10em' };
     }
-    return { padding: '5%', height: '10em' };
+    return { padding: '5%', minHeight: '10em' };
   }, [shouldTexBeBlack]);
 
   const renderCell = ({ title, color }) => {
