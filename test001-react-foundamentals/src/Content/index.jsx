@@ -3,10 +3,12 @@ import Cell from './Cell';
 
 function Content() {
   const [totalCount, setTotalCount] = useState(0);
-  // const handleClick = () => setTotalCount((oldValue) => oldValue + 1);
-  const handleClick = useCallback(() => setTotalCount((oldValue) => oldValue + 1), []);
 
-  const shouldTexBeBlack = totalCount > 10;
+  const handleClick = useCallback((title) => {
+    setTotalCount((oldValue) => oldValue + 1);
+  }, []);
+
+  const shouldTexBeBlack = totalCount % 2 === 1;
 
   const cellStyle = useMemo(() => {
     if (shouldTexBeBlack) {
