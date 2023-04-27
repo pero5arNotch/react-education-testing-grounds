@@ -5,6 +5,7 @@ function Cell(props) {
 
   const [counter, setCounter] = useState(0);
 
+  console.log(`UPDATE: Cell ${title}`);
   return (
     <div
       style={{ backgroundColor: color, padding: '5%', height: '10em' }}
@@ -16,7 +17,7 @@ function Cell(props) {
       <h2>{title}</h2>
       <span>Čelija je kliknuta {counter} / {totalCount} puta.</span>
     </div>
-  )
+  );
 }
 
 export default Cell;

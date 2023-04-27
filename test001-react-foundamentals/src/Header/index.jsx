@@ -1,6 +1,7 @@
 import logo from './logo.png';
 
 function Header() {
+  console.log('UPDATE: Header');
   return (
     <div className="header">
       <div>

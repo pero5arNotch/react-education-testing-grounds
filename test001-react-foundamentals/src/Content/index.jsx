@@ -5,6 +5,7 @@ function Content() {
   const [totalCount, setTotalCount] = useState(0);
   const handleClick = () => setTotalCount((oldValue) => oldValue + 1);
 
+  console.log('UPDATE: Content');
   return (
     <div className="content" style={{ color: 'white', textAlign: 'center' }}>
       <Cell title="A" color="#F3A712" totalCount={totalCount} onClick={handleClick} />
