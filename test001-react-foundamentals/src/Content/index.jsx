@@ -6,7 +6,7 @@ function Content({ whiteTextCells, blackTextCells }) {
   const [shouldTexBeBlack, setShouldTextBeBlack] = useState(false);
 
   useEffect(() => {
-    const intervalId = setInterval(() => { setShouldTextBeBlack((oldValue) => !oldValue); }, 3000);
+    const intervalId = setInterval(() => { setShouldTextBeBlack((oldValue) => !oldValue); }, 30000);
 
     return () => {
       clearInterval(intervalId);
