@@ -6,9 +6,14 @@ function Content() {
   // const handleClick = () => setTotalCount((oldValue) => oldValue + 1);
   const handleClick = useCallback(() => setTotalCount((oldValue) => oldValue + 1), []);
 
+  const shouldTexBeBlack = totalCount > 10;
+
   const cellStyle = useMemo(() => {
+    if (shouldTexBeBlack) {
+      return { color: 'black', padding: '5%', height: '10em' };
+    }
     return { padding: '5%', height: '10em' };
-  }, []);
+  }, [shouldTexBeBlack]);
 
   console.log('UPDATE: Content');
   return (
