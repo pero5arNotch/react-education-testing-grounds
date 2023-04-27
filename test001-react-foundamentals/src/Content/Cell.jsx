@@ -1,17 +1,17 @@
 import { useState, memo } from 'react';
 
 function Cell(props) {
-  const { title, color, style, onClick, totalCount } = props;
+  const { title, color, style, onClick, totalCount, counter } = props;
 
-  const [counter, setCounter] = useState(0);
+  // const [counter, setCounter] = useState(0);
 
   console.log(`UPDATE: Cell ${title}`);
   return (
     <div
       style={{ backgroundColor: color, ...style }}
       onClick={() => {
-        setCounter((oldValue) => oldValue + 1);
-        onClick();
+        // setCounter((oldValue) => oldValue + 1);
+        onClick(title);
       }}
     >
       <h2>{title}</h2>
