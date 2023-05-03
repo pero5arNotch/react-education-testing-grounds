@@ -3,6 +3,10 @@
   "version": "0.1",
   "description": "Typescript 101 + Typescript React",
   "author": "pero5arNotch",
+  "scripts": {
+    "build":" node_modules/.bin/tsc -p ./tsconfig.json",
+    "reset":" rm -rf ./dist"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "typescript": "^5.0.4"
