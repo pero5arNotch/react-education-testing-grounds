@@ -1,0 +1,13 @@
+{
+  "name": "test002-typescript",
+  "version": "0.1",
+  "description": "Typescript 101 + Typescript React",
+  "author": "pero5arNotch",
+  "dependencies": {
+    "react": "^18.2.0",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0"
+  }
+}
