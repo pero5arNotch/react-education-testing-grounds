@@ -1,4 +1,4 @@
 {
     "editor.tabSize": 2,
-    "javascript.format.semicolons": "insert"
+    "eslint.workingDirectories": ["test003-react-example/simple-dnd-tool"]
 }
