@@ -2,21 +2,16 @@ import Header from './Header';
 import Content from './Content';
 import Form from './Form';
 import { ThemeContext } from './ThemeContext';
-import { useState, useEffect } from 'react';
+import useInterval from './hooks/useInterval';
+
+import { useState, useEffect, useCallback } from 'react';
 
 function App() {
   console.log('UPDATE: App');
 
   const [theme, setTheme] = useState({ isDark: false })
 
-  useEffect(() => {
-    const intervalId = setInterval(() => { setTheme((oldValue) => ({ ...oldValue, isDark: !oldValue.isDark })); }, 6000);
-
-    return () => {
-      clearInterval(intervalId);
-      console.info('Interval cleared');
-    };
-  }, []);
+  useInterval(useCallback(() => { setTheme((oldValue) => ({ ...oldValue, isDark: !oldValue.isDark })); }, []), 6000);
 
   const [whiteTextCells, setWhiteTextCells] = useState([{ title: 'A', color: '#F3A712' }, { title: 'B', color: '#FF0054' }]);
   const [blackTextCells, setBlackTextCells] = useState([{ title: 'C', color: '#3772FF' }, { title: 'D', color: '#BAA898' }, { title: 'Test', color: 'aquamarine' }]);

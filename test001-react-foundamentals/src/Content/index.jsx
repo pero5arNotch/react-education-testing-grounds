@@ -2,6 +2,7 @@ import { useState, useCallback, useMemo, useEffect, useContext } from 'react';
 import Cell from './Cell';
 import { ThemeContext } from '../ThemeContext';
 import ClassCell from './ClassCell';
+import useInterval from '../hooks/useInterval';
 
 function Content({ whiteTextCells, blackTextCells }) {
   const [totalCount, setTotalCount] = useState(0);
@@ -9,14 +10,7 @@ function Content({ whiteTextCells, blackTextCells }) {
 
   const theme = useContext(ThemeContext);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => { setShouldTextBeBlack((oldValue) => !oldValue); }, 3000);
-
-    return () => {
-      clearInterval(intervalId);
-      console.info('Interval cleared');
-    };
-  }, []);
+  useInterval(useCallback(() => { setShouldTextBeBlack((oldValue) => !oldValue); }, []), 3000);
 
   const [counterByTitle, setCounterByTitle] = useState({});
 
