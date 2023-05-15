@@ -1,10 +1,13 @@
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useMemo, useEffect, useContext } from 'react';
 import Cell from './Cell';
+import { ThemeContext } from '../App';
 import ClassCell from './ClassCell';
 
 function Content({ whiteTextCells, blackTextCells }) {
   const [totalCount, setTotalCount] = useState(0);
   const [shouldTexBeBlack, setShouldTextBeBlack] = useState(false);
+
+  const theme = useContext(ThemeContext);
 
   useEffect(() => {
     const intervalId = setInterval(() => { setShouldTextBeBlack((oldValue) => !oldValue); }, 3000);
@@ -43,11 +46,11 @@ function Content({ whiteTextCells, blackTextCells }) {
   }, []);
 
   const cellStyle = useMemo(() => {
-    if (shouldTexBeBlack) {
+    if (shouldTexBeBlack && !theme.isDark) {
       return { color: 'black', padding: '5%', minHeight: '10em' };
     }
     return { padding: '5%', minHeight: '10em' };
-  }, [shouldTexBeBlack]);
+  }, [shouldTexBeBlack, theme]);
 
   const renderCell = ({ title, color }) => {
     return (
