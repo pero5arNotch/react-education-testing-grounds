@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo, useEffect, useContext } from 'react';
 import Cell from './Cell';
-import { ThemeContext } from '../App';
+import { ThemeContext } from '../ThemeContext';
 import ClassCell from './ClassCell';
 
 function Content({ whiteTextCells, blackTextCells }) {

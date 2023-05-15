@@ -1,5 +1,5 @@
 import logo from './logo.png';
-import { ThemeContext } from '../App';
+import { ThemeContext } from '../ThemeContext';
 import { useContext } from 'react';
 
 function Header() {
