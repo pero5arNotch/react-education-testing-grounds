@@ -1,0 +1,282 @@
+[
+  {
+      "key": "2023-07-09 18:00:00",
+      "temperature": 303.94,
+      "humidity": 40,
+      "pressure": 1020,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-09 21:00:00",
+      "temperature": 301.15,
+      "humidity": 49,
+      "pressure": 1020,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-10 00:00:00",
+      "temperature": 297.48,
+      "humidity": 61,
+      "pressure": 1021,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-10 03:00:00",
+      "temperature": 292.76,
+      "humidity": 77,
+      "pressure": 1021,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-10 06:00:00",
+      "temperature": 297.33,
+      "humidity": 62,
+      "pressure": 1021,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-10 09:00:00",
+      "temperature": 303.84,
+      "humidity": 41,
+      "pressure": 1021,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-10 12:00:00",
+      "temperature": 308.01,
+      "humidity": 30,
+      "pressure": 1019,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-10 15:00:00",
+      "temperature": 307.75,
+      "humidity": 31,
+      "pressure": 1017,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-10 18:00:00",
+      "temperature": 301.31,
+      "humidity": 55,
+      "pressure": 1017,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-10 21:00:00",
+      "temperature": 297.87,
+      "humidity": 63,
+      "pressure": 1017,
+      "precipitation": 0.17
+  },
+  {
+      "key": "2023-07-11 00:00:00",
+      "temperature": 292.03,
+      "humidity": 97,
+      "pressure": 1021,
+      "precipitation": 0.82
+  },
+  {
+      "key": "2023-07-11 03:00:00",
+      "temperature": 291.39,
+      "humidity": 97,
+      "pressure": 1020,
+      "precipitation": 0.31
+  },
+  {
+      "key": "2023-07-11 06:00:00",
+      "temperature": 294.99,
+      "humidity": 83,
+      "pressure": 1020,
+      "precipitation": 0.04
+  },
+  {
+      "key": "2023-07-11 09:00:00",
+      "temperature": 302.35,
+      "humidity": 51,
+      "pressure": 1018,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-11 12:00:00",
+      "temperature": 305.72,
+      "humidity": 40,
+      "pressure": 1017,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-11 15:00:00",
+      "temperature": 306.69,
+      "humidity": 36,
+      "pressure": 1015,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-11 18:00:00",
+      "temperature": 301.62,
+      "humidity": 60,
+      "pressure": 1015,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-11 21:00:00",
+      "temperature": 297.29,
+      "humidity": 77,
+      "pressure": 1015,
+      "precipitation": 0.1
+  },
+  {
+      "key": "2023-07-12 00:00:00",
+      "temperature": 295.26,
+      "humidity": 87,
+      "pressure": 1014,
+      "precipitation": 0.05
+  },
+  {
+      "key": "2023-07-12 03:00:00",
+      "temperature": 294.37,
+      "humidity": 84,
+      "pressure": 1014,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-12 06:00:00",
+      "temperature": 296.13,
+      "humidity": 76,
+      "pressure": 1014,
+      "precipitation": 0.2
+  },
+  {
+      "key": "2023-07-12 09:00:00",
+      "temperature": 304.59,
+      "humidity": 40,
+      "pressure": 1013,
+      "precipitation": 0.35
+  },
+  {
+      "key": "2023-07-12 12:00:00",
+      "temperature": 309.02,
+      "humidity": 28,
+      "pressure": 1012,
+      "precipitation": 0.04
+  },
+  {
+      "key": "2023-07-12 15:00:00",
+      "temperature": 305.94,
+      "humidity": 36,
+      "pressure": 1012,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-12 18:00:00",
+      "temperature": 301.22,
+      "humidity": 52,
+      "pressure": 1013,
+      "precipitation": 0.05
+  },
+  {
+      "key": "2023-07-12 21:00:00",
+      "temperature": 293.7,
+      "humidity": 89,
+      "pressure": 1016,
+      "precipitation": 0.59
+  },
+  {
+      "key": "2023-07-13 00:00:00",
+      "temperature": 292.85,
+      "humidity": 94,
+      "pressure": 1016,
+      "precipitation": 0.6
+  },
+  {
+      "key": "2023-07-13 03:00:00",
+      "temperature": 291.99,
+      "humidity": 96,
+      "pressure": 1015,
+      "precipitation": 0.25
+  },
+  {
+      "key": "2023-07-13 06:00:00",
+      "temperature": 294.75,
+      "humidity": 83,
+      "pressure": 1016,
+      "precipitation": 0.21
+  },
+  {
+      "key": "2023-07-13 09:00:00",
+      "temperature": 300.16,
+      "humidity": 56,
+      "pressure": 1017,
+      "precipitation": 0.1
+  },
+  {
+      "key": "2023-07-13 12:00:00",
+      "temperature": 299.15,
+      "humidity": 46,
+      "pressure": 1018,
+      "precipitation": 0.35
+  },
+  {
+      "key": "2023-07-13 15:00:00",
+      "temperature": 299.33,
+      "humidity": 49,
+      "pressure": 1017,
+      "precipitation": 0.5
+  },
+  {
+      "key": "2023-07-13 18:00:00",
+      "temperature": 294.06,
+      "humidity": 77,
+      "pressure": 1019,
+      "precipitation": 0.57
+  },
+  {
+      "key": "2023-07-13 21:00:00",
+      "temperature": 291.47,
+      "humidity": 95,
+      "pressure": 1019,
+      "precipitation": 0.56
+  },
+  {
+      "key": "2023-07-14 00:00:00",
+      "temperature": 290.58,
+      "humidity": 95,
+      "pressure": 1020,
+      "precipitation": 0.34
+  },
+  {
+      "key": "2023-07-14 03:00:00",
+      "temperature": 289.87,
+      "humidity": 96,
+      "pressure": 1019,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-14 06:00:00",
+      "temperature": 293.29,
+      "humidity": 84,
+      "pressure": 1019,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-14 09:00:00",
+      "temperature": 297.1,
+      "humidity": 63,
+      "pressure": 1019,
+      "precipitation": 0
+  },
+  {
+      "key": "2023-07-14 12:00:00",
+      "temperature": 301.24,
+      "humidity": 48,
+      "pressure": 1017,
+      "precipitation": 0.01
+  },
+  {
+      "key": "2023-07-14 15:00:00",
+      "temperature": 301.59,
+      "humidity": 49,
+      "pressure": 1016,
+      "precipitation": 0.24
+  }
+]

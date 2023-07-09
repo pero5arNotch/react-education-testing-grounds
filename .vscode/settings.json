@@ -1,4 +1,10 @@
 {
     "editor.tabSize": 2,
-    "eslint.workingDirectories": ["test003-react-example/simple-dnd-tool"]
+    "eslint.workingDirectories": [
+        "test003-react-example/simple-dnd-tool",
+        "weather-app"
+    ],
+    "cSpell.words": [
+        "Devcademy"
+    ],
 }
