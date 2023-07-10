@@ -1,0 +1,1 @@
+export * as locationsActions from './thunks';

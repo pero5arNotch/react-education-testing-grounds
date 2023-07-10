@@ -1,17 +1,17 @@
 import Container from 'react-bootstrap/Container';
+import { useRoutes } from 'react-router-dom';
 
-import ForecastChart from './components/ForecastChart';
 import Navigation from './components/Navigation';
-
-import testData from './testData.json';
+import routes from './routes';
 
 function App() {
+  const content = useRoutes(routes);
 
   return (
     <>
       <Navigation />
       <Container>
-        <ForecastChart data={testData} tempUnit="C" />
+        {content}
       </Container>
     </>
   );

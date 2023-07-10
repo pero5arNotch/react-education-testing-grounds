@@ -17,15 +17,12 @@ const formatTimeTick: XAxisProps['tickFormatter'] = (value: string) => value.sub
 const renderDateTick: XAxisProps['tick'] = (tickProps: unknown) => {
   const { x, y, payload: { value, offset } } = tickProps as { x: number; y: number; payload: { value: string; offset: number; } };
   const hour = value.substring(value.length - 8, value.length - 6);
-  console.log(tickProps, value, hour);
 
   if (hour === '12') {
-    console.log('03');
     const date = value.substring(0, 10);
     return <text x={x} y={y} textAnchor="middle">{date}</text>;
   }
   if (hour === '00') {
-    console.log('00');
     const pathX = x + offset;
 
     return <path d={`M${pathX},${y + offset}v${-35 - offset}`} stroke={colors.WARNING} />;
