@@ -17,7 +17,7 @@ export default function locationReducer(state: LocationsState = initialState, ac
           ...state.locationById,
           [action.payload.id]: action.payload
         },
-        locationIds: [...state.locationIds, action.payload.id],
+        locationIds: [action.payload.id, ...state.locationIds],
       };
 
     case actionTypes.CLEAR:

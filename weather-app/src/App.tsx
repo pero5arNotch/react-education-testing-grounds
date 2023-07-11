@@ -24,6 +24,7 @@ function App() {
   return (
     <>
       <Navigation />
+      <div className="p-3" />
       <Container>
         {content}
       </Container>
