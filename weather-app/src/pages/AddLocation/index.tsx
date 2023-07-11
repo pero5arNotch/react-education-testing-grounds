@@ -1,7 +1,8 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { locationsActions } from '../../redux/locations';
 import useReduxDispatch from '../../hooks/useReduxDispatch';
@@ -20,8 +21,15 @@ function AddLocation() {
   return (
     <>
       <Row>
-        <Col xs={12}>
+        <Col xs={10}>
           <h2>Add New Location</h2>
+        </Col>
+        <Col xs={2}>
+          <div className="page-header__actions-container">
+            <Link to={ROUTE_PATHS.HOME}>
+              <Button variant="success" as="div">Back</Button>
+            </Link>
+          </div>
         </Col>
       </Row>
       <Row>

@@ -1,0 +1,15 @@
+.page-header__actions-container {
+  display: flex;
+  padding: 2px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  & > * {
+    display: inherit;
+    flex-direction: inherit;
+    justify-content: center;
+    align-items: center;
+  }
+}

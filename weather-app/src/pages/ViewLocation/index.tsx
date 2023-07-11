@@ -1,8 +1,9 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 import * as openWeatherAPI from '../../api/openWeather.api';
@@ -12,15 +13,11 @@ import ForecastChart from '../../components/ForecastChart';
 import { ROUTE_PATHS } from '../../routes';
 
 /** 1 hour */
-const DATA_CACHE_TIME = 60 * 60 * 1000;
+const DATA_VALID_FOR = 60 * 60 * 1000;
 
 function ViewLocation() {
   const { id = 'fallback_id' } = useParams();
   const locationData = useReduxSelector((state) => state.locations.locationById[id] ?? { lat: 0, lon: 0 });
-
-  React.useEffect(() => {
-    // TODO: redirect if no data
-  }, [locationData]);
 
   // NOTE: Rounding nearby coordinates to get the most out of caching
   const lat = Math.round(locationData.lat * 25) / 25; // max ~5km diff
@@ -31,7 +28,7 @@ function ViewLocation() {
     () => openWeatherAPI.getForecast({ lat, lon })
   ], [lat, lon]);
 
-  const { isLoading, data } = useQuery({ queryKey, queryFn, cacheTime: DATA_CACHE_TIME });
+  const { isLoading, data } = useQuery({ queryKey, queryFn, staleTime: DATA_VALID_FOR });
 
   const chartData = React.useMemo(
     () => data?.list.map<ForecastDataPoint>((dataPoint) => ({
@@ -44,6 +41,10 @@ function ViewLocation() {
     [data]
   );
 
+  if (!locationData.id) {
+    return <Navigate to={ROUTE_PATHS.HOME} />;
+  }
+
   return (
     <>
       <Row>
@@ -51,7 +52,11 @@ function ViewLocation() {
           <h2>Weather at {locationData.name}</h2>
         </Col>
         <Col xs={2}>
-          <Link to={ROUTE_PATHS.HOME}>Back</Link>
+          <div className="page-header__actions-container">
+            <Link to={ROUTE_PATHS.HOME}>
+              <Button variant="success" as="div">Back</Button>
+            </Link>
+          </div>
         </Col>
       </Row>
       <Row>

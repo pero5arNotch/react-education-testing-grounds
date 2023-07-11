@@ -1,15 +1,21 @@
+// set bootstrap variables
 $primary: #5B2689;
 $success: #51D6A9;
 $info: #3772FF;
 $warning: #F3A712;
 $danger: #FF0054;
 
+// import bootsreap
 @import "node_modules/bootswatch/dist/flatly/variables";
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/bootswatch/dist/flatly/bootswatch";
 
+// global clear
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+// import local files
+@import "./pages/index.scss";

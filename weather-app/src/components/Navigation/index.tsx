@@ -1,29 +1,32 @@
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { NavLink } from 'react-router-dom';
+
+import { ROUTE_PATHS } from '../../routes';
 
 function Navigation() {
+  const getNavLinkClassName = React.useCallback(
+    ({ isActive }: { isActive: boolean }) => `nav-link${isActive ? ' active' : ''}`,
+    []
+  );
+
   return (
-    <Navbar expand="lg" className="bg-primary">
+    <Navbar expand="lg" bg="primary" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home" className="text-white">Devcademy Weather App</Navbar.Brand>
+        <Navbar.Brand>
+          Devcademy Weather App
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" className="text-white">Home</Nav.Link>
-            <Nav.Link href="#link" className="text-white">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <NavLink to={ROUTE_PATHS.HOME} className={getNavLinkClassName}>
+              Location List
+            </NavLink>
+            <NavLink to={ROUTE_PATHS.ADD_LOCATION} className={getNavLinkClassName}>
+              Add Location
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

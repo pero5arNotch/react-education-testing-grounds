@@ -5,7 +5,13 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import store from './redux/store';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  logger: {
+    log: console.log,
+    warn: console.warn,
+    error: console.error
+  },
+});
 
 function AppProviders({ children }: React.PropsWithChildren) {
   return (

@@ -2,8 +2,10 @@ import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 import { useNavigate } from 'react-router-dom';
 
-import useReduxSelector from '../../hooks/useReduxSelector';
 import { ROUTE_PATHS } from '../../routes';
+import { locationsActions } from '../../redux/locations';
+import useReduxSelector from '../../hooks/useReduxSelector';
+import useReduxDispatch from '../../hooks/useReduxDispatch';
 
 interface Props {
   id: string;
@@ -11,6 +13,7 @@ interface Props {
 
 function LocationTableRow({ id }: Props) {
   const locationData = useReduxSelector((state) => state.locations.locationById[id]);
+  const dispatch = useReduxDispatch();
   const navigate = useNavigate();
 
   return (
@@ -23,6 +26,7 @@ function LocationTableRow({ id }: Props) {
         <Stack gap={2} direction="horizontal">
           <Button variant="success" onClick={() => navigate(ROUTE_PATHS.VIEW_LOCATION(id))}>View</Button>
           <Button variant="warning" onClick={() => navigate(ROUTE_PATHS.EDIT_LOCATION(id))}>Edit</Button>
+          <Button variant="danger" onClick={() => dispatch(locationsActions.removeLocation(id))}>Remove</Button>
         </Stack>
       </td>
     </tr>

@@ -1,9 +1,11 @@
 import React from 'react';
-import { ResponsiveContainer, ComposedChart, XAxis, YAxis, Legend, CartesianGrid, Area, Bar, Line, Tooltip, XAxisProps } from 'recharts';
+import { ResponsiveContainer, ComposedChart, XAxis, YAxis, Legend, CartesianGrid, Area, Bar, Line, Tooltip } from 'recharts';
 
 import { ForecastDataPoint } from '../../models/WeatherData';
 import * as colors from '../../constants/colors';
 import { TemperatureConversion } from '../../utils/weather.utils';
+
+import { formatTimeTick, renderDateTick } from './helpers';
 
 import styles from './index.module.scss';
 
@@ -11,24 +13,6 @@ interface Props {
   data: ForecastDataPoint[];
   tempUnit?: 'K' | 'C' | 'F';
 }
-
-const formatTimeTick: XAxisProps['tickFormatter'] = (value: string) => value.substring(value.length - 8, value.length - 3);
-
-const renderDateTick: XAxisProps['tick'] = (tickProps: unknown) => {
-  const { x, y, payload: { value, offset } } = tickProps as { x: number; y: number; payload: { value: string; offset: number; } };
-  const hour = value.substring(value.length - 8, value.length - 6);
-
-  if (hour === '12') {
-    const date = value.substring(0, 10);
-    return <text x={x} y={y} textAnchor="middle">{date}</text>;
-  }
-  if (hour === '00') {
-    const pathX = x + offset;
-
-    return <path d={`M${pathX},${y + offset}v${-35 - offset}`} stroke={colors.WARNING} />;
-  }
-  return null as unknown as React.ReactElement;
-};
 
 function ForecastChart(props: Props) {
   const { data, tempUnit = 'K' } = props;

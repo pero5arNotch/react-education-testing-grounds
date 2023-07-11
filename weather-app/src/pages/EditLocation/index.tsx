@@ -1,7 +1,8 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { useNavigate, useParams } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import { Navigate, useNavigate, useParams, Link } from 'react-router-dom';
 
 import { ROUTE_PATHS } from '../../routes';
 import { locationsActions } from '../../redux/locations';
@@ -15,14 +16,9 @@ function EditLocation() {
   const dispatch = useReduxDispatch();
   const navigate = useNavigate();
 
-  React.useEffect(() => {
-    // TODO: redirect if no data
-  }, [locationData]);
-
   const addLocation = React.useCallback((data: LocationFormData) => {
     dispatch(locationsActions.editLocation({ ...data, id }));
     navigate(ROUTE_PATHS.HOME);
-    // TODO: redirect
   }, [dispatch, navigate, id]);
 
   const initialValues = React.useMemo(() => ({
@@ -31,11 +27,22 @@ function EditLocation() {
     lon: locationData.lon,
   }), [locationData]);
 
+  if (!locationData) {
+    return <Navigate to={ROUTE_PATHS.HOME} />;
+  }
+
   return (
     <>
       <Row>
-        <Col xs={12}>
+        <Col xs={10}>
           <h2>Edit Location <var>{id}</var></h2>
+        </Col>
+        <Col xs={2}>
+          <div className="page-header__actions-container">
+            <Link to={ROUTE_PATHS.HOME}>
+              <Button variant="success" as="div">Back</Button>
+            </Link>
+          </div>
         </Col>
       </Row>
       <Row>

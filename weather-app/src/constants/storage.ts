@@ -1,0 +1,1 @@
+export const LOCATIONS_STORE_KEY = 'LOCATIONS_STORE';
