@@ -16,7 +16,7 @@ function EditLocation() {
   const dispatch = useReduxDispatch();
   const navigate = useNavigate();
 
-  const addLocation = React.useCallback((data: LocationFormData) => {
+  const editLocation = React.useCallback((data: LocationFormData) => {
     dispatch(locationsActions.editLocation({ ...data, id }));
     navigate(ROUTE_PATHS.HOME);
   }, [dispatch, navigate, id]);
@@ -47,7 +47,7 @@ function EditLocation() {
       </Row>
       <Row>
         <Col xs={12}>
-          <LocationForm onSubmit={addLocation} initialValues={initialValues} />
+          <LocationForm onSubmit={editLocation} initialValues={initialValues} />
         </Col>
       </Row>
     </>

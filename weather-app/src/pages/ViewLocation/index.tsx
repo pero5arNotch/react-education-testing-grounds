@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
@@ -27,6 +27,27 @@ function ViewLocation() {
     ['forecast', { lat, lon }],
     () => openWeatherAPI.getForecast({ lat, lon })
   ], [lat, lon]);
+
+  // const [isLoading1, setIsLoading1] = useState<boolean>(false);
+  // const [data1, setData1] = useState<unknown>(null);
+  // React.useEffect(() => {
+  //   let shouldSetState = true;
+
+  //   const makeRequest = async () => {
+  //     setIsLoading1(true);
+  //     const result = await openWeatherAPI.getForecast({ lat, lon });
+  //     if (shouldSetState) {
+  //       setData1(result);
+  //       setIsLoading1(false);
+  //     }
+  //   };
+  //   // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  //   makeRequest();
+
+  //   return () => {
+  //     shouldSetState = false;
+  //   };
+  // }, [lat, lon]);
 
   const { isLoading, data } = useQuery({ queryKey, queryFn, staleTime: DATA_VALID_FOR });
 
